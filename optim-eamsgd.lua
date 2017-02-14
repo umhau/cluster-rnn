@@ -1,5 +1,6 @@
 -- Async EASGD/EAMSGD
 -- Author: Sixin Zhang (zsx@cims.nyu.edu)
+-- Author: umhau (umhau@alum.gcc.edu)
 -- when mom==0, it is the easgd
 require 'optim'
 
@@ -7,15 +8,15 @@ function optim.eamsgd(opfunc, w, config, state)
    local config = config or {}   
    local state = state or config
   
-   local lr = config.lr or 0   -- learning rate \eta
-   local lrd = config.lrd or 0 -- learning rate decay
-   local lrp = config.lrp or 0 -- learning rate decay power
-   local mom = config.mom or 0 -- momentum term \delta
+   local lr = config.learningRate or 0   -- learning rate \eta
+   local lrd = config.learningRateDecay or 0 -- learning rate decay
+   local lrp = config.learningRateDecayPower or 0 -- learning rate decay power
+   local mom = config.momentum or 0 -- momentum term \delta
    local l2wd = config.l2wd or 0
 
    local pc = config.pclient or nil
-   local mva = config.mva or 0 -- moving rate \alpha
-   local su = config.su or 1   -- comm period \tau
+   local mva = config.movingRateAlpha or 0 -- moving rate \alpha
+   local su = config.communicationPeriod or 1   -- comm period \tau
 
    state.pversion = state.pversion or 0
    state.dusync = state.dusync or 0

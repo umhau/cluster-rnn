@@ -346,10 +346,28 @@ elseif opt.optimizer == 'sgd' then
     optim_state.momentum = 0.99
     optim_state.nesterov = true
     optim_state.dampening = 0
+elseif opt.optimizer == 'eamsgd' then
+    optimizer = optim.eamsgd
+    optim_state.learningRate = opt.learningRate
+    optim_state.momentum = opt.momentum
+    optim_state.pclient = opt.pclient
+    optim_state.communicationPeriod = opt.communicationPeriod
+    optim_state.movingRateAlpha = opt.movingRateAlpha
 else
     optimizer = optim.rmsprop
 end
 
+-- initialize MPI optimizer clients
+rank = opt.rank
+print('i am ' .. rank .. ' ready to run')
+if pclient then
+   pclient:start(params,grad_params)
+   assert(rank == pclient.rank)
+   print('pc ' .. rank .. ' started')
+end
+
+-- run optimizer
+sys.tic() -- time the training procedure
 for i = 1, iterations do
     local epoch = i / loader.ntrain
 
@@ -432,4 +450,9 @@ for i = 1, iterations do
     end
 end
 
+-- stop optimizer clients
+if pclient then
+   pclient:stop()
+end
 
+print(rank,'total training time is', sys.toc())

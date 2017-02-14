@@ -64,10 +64,10 @@ opt.su = 1
 --]]
 opt.name = 'eamsgd' -- using most efficient optimizer
 --opt.lr = 1e-1
-opt.su = 100
-opt.mva = 0.9/6 -- this is \beta/p when p=6
-opt.lr = 1e-2 -- order of magnitude from the other - what's the difference?
-opt.mom = 0.99
+opt.communicationPeriod = 100
+opt.movingRateAlpha = 0.9/6 -- this is \beta/p when p=6
+opt.learningRate = 1e-1 --1e-2 -- order of magnitude from the other - what's the difference?
+opt.momentum = 0.99
 
 opt.maxepoch = iterations
 
@@ -106,7 +106,7 @@ else
    -- done with configuring the processors.  These are settings specific to the
    -- node at hand, now that we know exactly what it's going to be doing.
    opt.gpuid = gpuid       -- Tell the optimizer if GPUs are available.
-   opt.pc = pClient(conf)  -- MPI settings for communicating with the other nodes.
+   opt.pclient = pClient(conf)  -- MPI settings for communicating with the other nodes.
    opt.rank = rank         -- Simple access to the node number.  
 
    -- Time to run the training algorithm.  This is not an arbitrary script,

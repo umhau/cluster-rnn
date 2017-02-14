@@ -10,6 +10,7 @@
 local opt = opt or {}
 
 -- location of training data
+-- looks like it's designed to continue processing data after an interruption.
 local data_root = opt.data_root or
    io.popen('echo $HOME'):read() .. '/data/torch7/mnist10'
 
