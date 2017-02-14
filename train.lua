@@ -424,7 +424,8 @@ for i = 1, iterations do
     end
 
     if i % opt.print_every == 0 then
-        print(string.format("%d/%d (epoch %.3f), train_loss = %6.8f, grad/param norm = %6.4e, time/batch = %.4fs", i, iterations, epoch, train_loss, grad_params:norm() / params:norm(), time))
+    machine_name = io.popen('hostname -s'):read()
+        print(string.format("%s %d/%d (epoch %.3f), train_loss = %6.8f, grad/param norm = %6.4e, time/batch = %.4fs",machine_name, i, iterations, epoch, train_loss, grad_params:norm() / params:norm(), time))
     end
 
     if i % (opt.print_every*10) == 0 then
