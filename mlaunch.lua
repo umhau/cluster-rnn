@@ -56,20 +56,20 @@ for i = 0,size-1 do
    end
 end
 
-opt = {}
+mpiOptions = {}
 --[[ -- delete this stuff later.
-opt.name = 'downpour'
-opt.lr = 1e-4
-opt.su = 1
+mpiOptions.name = 'downpour'
+mpiOptions.lr = 1e-4
+mpiOptions.su = 1
 --]]
-opt.name = 'eamsgd' -- using most efficient optimizer
---opt.lr = 1e-1
-opt.communicationPeriod = 100
-opt.movingRateAlpha = 0.9/6 -- this is \beta/p when p=6
-opt.learningRate = 1e-1 --1e-2 -- order of magnitude from the other - what's the difference?
-opt.momentum = 0.99
+mpiOptions.name = 'eamsgd' -- using most efficient optimizer
+--mpiOptions.lr = 1e-1
+mpiOptions.communicationPeriod = 100
+mpiOptions.movingRateAlpha = 0.9/6 -- this is \beta/p when p=6
+mpiOptions.learningRate = 1e-1 --1e-2 -- order of magnitude from the other - what's the difference?
+mpiOptions.momentum = 0.99
 
-opt.maxepoch = iterations
+mpiOptions.maxepoch = iterations
 
 -- determine if the current node should be server or client. Seems like there
 -- should be more clients than servers...investigate later.  (change the '2'?)
@@ -105,9 +105,9 @@ else
 
    -- done with configuring the processors.  These are settings specific to the
    -- node at hand, now that we know exactly what it's going to be doing.
-   opt.gpuid = gpuid       -- Tell the optimizer if GPUs are available.
-   opt.pclient = pClient(conf)  -- MPI settings for communicating with the other nodes.
-   opt.rank = rank         -- Simple access to the node number.  
+   mpiOptions.gpuid = gpuid       -- Tell the optimizer if GPUs are available.
+   mpiOptions.pclient = pClient(conf)  -- MPI settings for communicating with the other nodes.
+   mpiOptions.rank = rank         -- Simple access to the node number.  
 
    -- Time to run the training algorithm.  This is not an arbitrary script,
    -- and must contain some cruicial settings.
