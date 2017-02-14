@@ -19,7 +19,7 @@ GPUs, so I can't speak to how those are presented.
 -- VARIABLES ------------------------------------------------------------------
 
 local oncuda = false -- Set for working with CPUs. Change this if using GPUs.
-local torchfile = 'goot.lua' -- name of torch file to run with MPI
+local torchfile = 'train.lua' -- name of torch file to run with MPI
 local iterations = 10 -- i.e., epochs.  don't need that many for testing.
 
 -- there's other EAMSGD variables that can be tuned below. I'll do that later.
