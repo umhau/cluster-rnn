@@ -358,7 +358,7 @@ else
 end
 
 -- initialize MPI optimizer clients
-rank = opt.rank
+rank = opt.rank or -1
 print('i am ' .. rank .. ' ready to run')
 if pclient then
    pclient:start(params,grad_params)
