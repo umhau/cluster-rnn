@@ -12,6 +12,6 @@ mpiT.tag_ps_recv_grad_tail = 8
 dofile('pserver.lua')
 dofile('pclient.lua')
 
-dofile('optim-msgd.lua')
-dofile('optim-downpour.lua')
+--dofile('optim-msgd.lua')
+--dofile('optim-downpour.lua')
 dofile('optim-eamsgd.lua')
