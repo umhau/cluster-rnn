@@ -25,7 +25,7 @@ local iterations = 10 -- i.e., epochs.  don't need that many for testing.
 -- advanced parameters
 local communicationPeriod = 64
 local movingRateAlpha = 0.001 --0.9/6
-local learningRate = 5e-2 
+local learningRate = 5e-3 
 local momentum = 0.99
 
 -- very advanced parameters
