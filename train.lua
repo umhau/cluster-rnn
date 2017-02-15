@@ -353,6 +353,8 @@ elseif opt.optimizer == 'eamsgd' then
     optim_state.pclient = mpiOptions.pclient
     optim_state.communicationPeriod = mpiOptions.communicationPeriod
     optim_state.movingRateAlpha = mpiOptions.movingRateAlpha
+    optim_state.learningRateDecay = mpiOptions.learningRateDecay
+    optim_state.learningRateDecayPower = mpiOptions.learningRateDecayPower
 else
     optimizer = optim.rmsprop
 end
