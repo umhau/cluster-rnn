@@ -412,14 +412,14 @@ for i = 1, iterations do
         local savefile = string.format('%s/lm_%s_epoch%.2f_%.4f.t7', opt.checkpoint_dir, opt.savefile, epoch, val_loss)
         print('saving checkpoint to ' .. savefile)
         local checkpoint = {}
-        checkpoint.protos = protos
+        --checkpoint.protos = protos
         --checkpoint.opt = opt
-        checkpoint.train_losses = train_losses
-        checkpoint.val_loss = val_loss
-        checkpoint.val_losses = val_losses
-        checkpoint.i = i
-        checkpoint.epoch = epoch
-        checkpoint.vocab = loader.vocab_mapping
+        --checkpoint.train_losses = train_losses
+        --checkpoint.val_loss = val_loss
+        --checkpoint.val_losses = val_losses
+        --checkpoint.i = i
+        --checkpoint.epoch = epoch
+        --checkpoint.vocab = loader.vocab_mapping
         --checkpoint.optim_state = optim_state
         --checkpoint.optimizer = opt.optimizer
         torch.save(savefile, checkpoint)
