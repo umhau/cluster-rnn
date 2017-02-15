@@ -66,7 +66,7 @@ mpiOptions.name = 'eamsgd' -- using most efficient optimizer
 --mpiOptions.lr = 1e-1
 mpiOptions.communicationPeriod = 100
 mpiOptions.movingRateAlpha = 0.9/6 -- this is \beta/p when p=6
-mpiOptions.learningRate = 1e-1 --1e-2 -- order of magnitude from the other - what's the difference?
+mpiOptions.learningRate = 1e-2 -- order of magnitude from the other - what's the difference?
 mpiOptions.momentum = 0.99
 
 mpiOptions.maxepoch = iterations
