@@ -350,7 +350,7 @@ elseif opt.optimizer == 'eamsgd' then
     optimizer = optim.eamsgd
     optim_state.learningRate = mpiOptions.learningRate
     optim_state.momentum = mpiOptions.momentum
-    optim_state.pclient = mpiOptions.pclient
+    -- optim_state.pclient = mpiOptions.pclient
     optim_state.communicationPeriod = mpiOptions.communicationPeriod
     optim_state.movingRateAlpha = mpiOptions.movingRateAlpha
     optim_state.learningRateDecay = mpiOptions.learningRateDecay
@@ -361,7 +361,7 @@ end
 
 -- initialize MPI optimizer clients
 rank = mpiOptions.rank or -1
-pclient = optim_state.pclient or nil
+pclient = mpiOptions.pclient or nil
 print('i am ' .. rank .. ' ready to run')
 if pclient then
    pclient:start(params,grad_params)
