@@ -29,7 +29,7 @@ local learningRate = 1e-2
 local momentum = 0.99
 
 -- very advanced parameters
-local learningRateDecay = 1e-4
+local learningRateDecay = 1e-2
 local learningRateDecayPower = .5 -- see pg. 23, fig 9 of associated paper
 
 -- there's other EAMSGD variables that can be tuned below. I'll do that later.
