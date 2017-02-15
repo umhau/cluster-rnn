@@ -332,7 +332,7 @@ end
 -- start optimization here
 train_losses = {}
 val_losses = {}
-local iterations = opt.max_epochs * loader.ntrain
+local iterations = math.floor(opt.max_epochs * loader.ntrain)
 local iterations_per_epoch = loader.ntrain
 local loss0 = nil
 
