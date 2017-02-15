@@ -24,13 +24,13 @@ local iterations = 10 -- i.e., epochs.  don't need that many for testing.
 
 -- advanced parameters
 local communicationPeriod = 64
-local movingRateAlpha = .001 --0.9/6
-local learningRate = 1e-2 
+local movingRateAlpha = 0.9/6 --.001 --0.9/6
+local learningRate = 5e-2 
 local momentum = 0.99
 
 -- very advanced parameters
-local learningRateDecay = 1e-2
-local learningRateDecayPower = .5 -- see pg. 23, fig 9 of associated paper
+local learningRateDecay = 1e-4
+local learningRateDecayPower = 0.5 -- see pg. 23, fig 9 of associated paper
 
 -- there's other EAMSGD variables that can be tuned below. I'll do that later.
 
