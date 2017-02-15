@@ -69,7 +69,7 @@ cmd:option('-opencl',0,'use OpenCL (instead of CUDA)')
 cmd:option('-word_level',0,'whether to operate on the word level, instead of character level (0: use chars, 1: use words)')
 cmd:option('-threshold',0,'minimum number of occurences a token must have to be included (ignored if -word_level is 0)')
 cmd:option('-glove',0,'whether or not to use GloVe embeddings')
-cmd:option('-optimizer','rmsprop','which optimizer to use: adam or rmsprop')
+cmd:option('-optimizer','eamsgd','which optimizer to use: adam or rmsprop')
 
 cmd:text()
 
