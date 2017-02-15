@@ -22,6 +22,16 @@ local oncuda = false -- Set for working with CPUs. Change this if using GPUs.
 local torchfile = 'train.lua' -- name of torch file to run with MPI
 local iterations = 10 -- i.e., epochs.  don't need that many for testing.
 
+-- advanced parameters
+local communicationPeriod = 100
+local movingRateAlpha = 0.9/6
+local learningRate = 1e-2 
+local momentum = 0.99
+
+-- very advanced parameters
+local learningRateDecay = 0
+local learningRateDecayPower = 0
+
 -- there's other EAMSGD variables that can be tuned below. I'll do that later.
 
 -- GPU SETTINGS ---------------------------------------------------------------
@@ -64,12 +74,15 @@ mpiOptions.su = 1
 --]]
 mpiOptions.name = 'eamsgd' -- using most efficient optimizer
 --mpiOptions.lr = 1e-1
-mpiOptions.communicationPeriod = 100
-mpiOptions.movingRateAlpha = 0.9/6 -- this is \beta/p when p=6
-mpiOptions.learningRate = 1e-2 -- order of magnitude from the other - what's the difference?
-mpiOptions.momentum = 0.99
+mpiOptions.communicationPeriod = communicationPeriod
+mpiOptions.movingRateAlpha = movingRateAlpha -- this is \beta/p when p=6
+mpiOptions.learningRate = learningRate -- order of magnitude from the other - what's the difference?
+mpiOptions.momentum = momentum
 
 mpiOptions.maxepoch = iterations
+
+mpiOptions.learningRateDecay = learningRateDecay
+mpiOptions.learningRateDecayPower = learningRateDecayPower
 
 -- determine if the current node should be server or client. Seems like there
 -- should be more clients than servers...investigate later.  (change the '2'?)
