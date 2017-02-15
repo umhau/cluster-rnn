@@ -23,7 +23,7 @@ local torchfile = 'train.lua' -- name of torch file to run with MPI
 local iterations = 10 -- i.e., epochs.  don't need that many for testing.
 
 -- advanced parameters
-local communicationPeriod = 1
+local communicationPeriod = 64
 local movingRateAlpha = .001 --0.9/6
 local learningRate = 1e-2 
 local momentum = 0.99
