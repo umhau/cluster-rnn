@@ -404,6 +404,8 @@ for i = 1, iterations do
     if epoch < 10 then
         eval_multiplier = 1 --increase this to eval less often in the first iterations
     end
+    print('current iteration: ' .. i)
+    print('total iterations:  ' .. iterations)
     if i % (opt.eval_val_every * eval_multiplier) == 0 or i == iterations then
         -- evaluate loss on validation data
         local val_loss = eval_split(2) -- 2 = validation
