@@ -350,7 +350,7 @@ elseif opt.optimizer == 'eamsgd' then
     optimizer = optim.eamsgd
     optim_state.learningRate = mpiOptions.learningRate
     optim_state.momentum = mpiOptions.momentum
-    -- optim_state.pclient = mpiOptions.pclient
+    optim_state.pclient = mpiOptions.pclient
     optim_state.communicationPeriod = mpiOptions.communicationPeriod
     optim_state.movingRateAlpha = mpiOptions.movingRateAlpha
     optim_state.learningRateDecay = mpiOptions.learningRateDecay
