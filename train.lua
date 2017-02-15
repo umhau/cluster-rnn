@@ -50,7 +50,7 @@ cmd:option('-dropout',0,'dropout for regularization, used after each RNN hidden 
 cmd:option('-recurrent_dropout',0,'dropout for regularization, used on recurrent connections. 0 = no dropout')
 cmd:option('-seq_length',50,'number of timesteps to unroll for')
 cmd:option('-batch_size',50,'number of sequences to train on in parallel')
-cmd:option('-max_epochs',0.05,'number of full passes through the training data')
+cmd:option('-max_epochs',0.01,'number of full passes through the training data')
 cmd:option('-grad_clip',5,'clip gradients at this value')
 cmd:option('-train_frac',0.95,'fraction of data that goes into train set')
 cmd:option('-val_frac',0.05,'fraction of data that goes into validation set')
@@ -412,14 +412,14 @@ for i = 1, iterations do
         local savefile = string.format('%s/lm_%s_epoch%.2f_%.4f.t7', opt.checkpoint_dir, opt.savefile, epoch, val_loss)
         print('saving checkpoint to ' .. savefile)
         local checkpoint = {}
-        --checkpoint.protos = protos
+        checkpoint.protos = protos
         --checkpoint.opt = opt
-        --checkpoint.train_losses = train_losses
-        --checkpoint.val_loss = val_loss
-        --checkpoint.val_losses = val_losses
-        --checkpoint.i = i
-        --checkpoint.epoch = epoch
-        --checkpoint.vocab = loader.vocab_mapping
+        checkpoint.train_losses = train_losses
+        checkpoint.val_loss = val_loss
+        checkpoint.val_losses = val_losses
+        checkpoint.i = i
+        checkpoint.epoch = epoch
+        checkpoint.vocab = loader.vocab_mapping
         --checkpoint.optim_state = optim_state
         --checkpoint.optimizer = opt.optimizer
         torch.save(savefile, checkpoint)
