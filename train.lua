@@ -421,7 +421,7 @@ for i = 1, iterations do
         checkpoint.epoch = epoch
         checkpoint.vocab = loader.vocab_mapping
         --checkpoint.optim_state = optim_state
-        checkpoint.optimizer = opt.optimizer
+        --checkpoint.optimizer = opt.optimizer
         torch.save(savefile, checkpoint)
     end
 
