@@ -14,6 +14,9 @@ core on each available machine in the cluster - so the 'ranks' below will range
 from 0-7 if there are two machines with 4 CPU cores each.  I don't have any 
 GPUs, so I can't speak to how those are presented.
 
+The paper refers to some of the parameters with greek symbols.  These are noted
+as relevant in the variables section below.
+
 --]]
 
 -- VARIABLES ------------------------------------------------------------------
@@ -23,10 +26,10 @@ local torchfile = 'train.lua' -- name of torch file to run with MPI
 local iterations = 10 -- i.e., epochs.  don't need that many for testing.
 
 -- advanced parameters
-local communicationPeriod = 64
-local movingRateAlpha = 0.001 --0.9/6
-local learningRate = 5e-3 
-local momentum = 0.99
+local communicationPeriod = 64 -- \tau
+local movingRateAlpha     = 0.001 --0.9/6 -- \alpha
+local learningRate        = 5e-3 --\eta
+local momentum            = 0.99 -- \delta
 
 -- very advanced parameters
 local learningRateDecay = 1e-4
