@@ -415,7 +415,7 @@ for i = 1, iterations do
         print('saving checkpoint to ' .. savefile)
         local checkpoint = {}
         checkpoint.protos = protos
-        --checkpoint.opt = opt
+        checkpoint.opt = opt
         checkpoint.train_losses = train_losses
         checkpoint.val_loss = val_loss
         checkpoint.val_losses = val_losses
