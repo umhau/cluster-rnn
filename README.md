@@ -13,3 +13,6 @@ mpirun -np 11 -f ../machinefile th mlaunch.lua
 Where '11' is the number of available cores in the cluster, '../machinefile' 
 points to the MPI machinefile, and mlaunch.lua is configured with the specific 
 Torch script you care to run.
+
+To use/test the trained model, run this code:
+th sample.lua cv/some_checkpoint.t7 -gpuid -1
