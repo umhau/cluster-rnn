@@ -148,13 +148,15 @@ repeat
 		gprint('--------------------------')
         print('1')
 		prediction = torch.Tensor(1, #ivocab):fill(1)/(#ivocab)
+        prin('2')
 		if opt.gpuid >= 0 and opt.opencl == 0 then prediction = prediction:cuda() end
-		if opt.gpuid >= 0 and opt.opencl == 1 then prediction = prediction:cl() end
+		print('3')
+        if opt.gpuid >= 0 and opt.opencl == 1 then prediction = prediction:cl() end
 	end
 
 	-- start sampling/argmaxing
 	for i=1, opt.length do
-
+        print('4')
 		-- log probabilities from the previous timestep
 		if opt.sample == 0 then
 			-- use argmax
