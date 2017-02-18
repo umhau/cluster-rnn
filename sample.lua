@@ -37,7 +37,7 @@ cmd:option('-opencl',0,'use OpenCL (instead of CUDA)')
 cmd:option('-verbose',1,'set to 0 to ONLY print the sampled text, no diagnostics')
 cmd:option('-skip_unk',0,'whether to skip UNK tokens when sampling')
 cmd:option('-input_loop',0,'whether to read new seed text from stdin after having finished sampling')
-cmd:option('-word_level',0,'whether to operate on the word level, instead of character level (0: use chars, 1: use words)') --todo: set this in checkpoint
+cmd:option('-word_level',1,'whether to operate on the word level, instead of character level (0: use chars, 1: use words)') --todo: set this in checkpoint
 cmd:text()
 
 -- parse input params
